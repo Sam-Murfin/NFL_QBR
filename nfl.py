@@ -27,7 +27,7 @@ plt.show()
 qbr_data['Long_Diff'] = qbr_data['long_qbr'] - qbr_data['avg_qbr']
 qbr_data['Short_Diff'] = qbr_data['short_qbr'] - qbr_data['avg_qbr']
 
-# Positions for grouped bars
+
 x = np.arange(len(qbr_data))  # number of QBs
 width = 0.35  # width of the bars
 
@@ -36,11 +36,11 @@ fig, ax = plt.subplots(figsize=(14, 6))
 bars1 = ax.bar(x - width/2, qbr_data['Long_Diff'], width, label='Longest Travel')
 bars2 = ax.bar(x + width/2, qbr_data['Short_Diff'], width, label='Shortest Travel')
 
-# X-axis labels
+
 ax.set_xticks(x)
 ax.set_xticklabels(qbr_data['player_name'], rotation=45, ha='right')
 
-# Labels and legend
+
 ax.set_ylabel('QBR Difference from Season Avg')
 ax.set_title('QB Performance in Longest vs Shortest Travel Games (vs Season Avg)')
 ax.axhline(0, color='gray', linewidth=1, linestyle='--')
@@ -49,7 +49,7 @@ ax.legend()
 plt.tight_layout()
 plt.show()
 
-# Melt into long format if needed
+
 long_data = pd.DataFrame({
     'QB': qbr_data['player_name'],
     'Distance': qbr_data['long_dist'],
